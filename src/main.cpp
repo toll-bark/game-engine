@@ -4,6 +4,7 @@ int main()
 {
     auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "CMake SFML Project");
     window.setFramerateLimit(144);
+    window.setKeyRepeatEnabled(false);
 
     auto player = sf::RectangleShape({50, 100});
     player.setFillColor(sf::Color::Magenta);
@@ -26,16 +27,40 @@ int main()
                 window.close();
             }
 
-            if (event->is<sf::Event::KeyPressed>()) { heldKeys[event->getIf<sf::Event::KeyPressed>()->code] = true; }
-            if (event->is<sf::Event::KeyReleased>()) { heldKeys[event->getIf<sf::Event::KeyReleased>()->code] = false; }
+            if (event->is<sf::Event::KeyPressed>()) 
+            {
+                switch(event->getIf<sf::Event::KeyPressed>()->code)
+                {
+                    case sf::Keyboard::Key::Left:
+                        player_velocity.x += -5;
+                        break;
+                    case sf::Keyboard::Key::Right:
+                        player_velocity.x += 5;
+                        break;
+                    case sf::Keyboard::Key::Space:
+                        if (player_can_jump) { player_velocity.y += -10; }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            if (event->is<sf::Event::KeyReleased>()) {
+                switch(event->getIf<sf::Event::KeyReleased>()->code)
+                {
+                    case sf::Keyboard::Key::Left:
+                        player_velocity.x -= -5;
+                        break;
+                    case sf::Keyboard::Key::Right:
+                        player_velocity.x -= 5;
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
-        // handle horizontal movement
-        if (heldKeys.count(sf::Keyboard::Key::Left) > 0 && heldKeys[sf::Keyboard::Key::Left]) player.setPosition(player.getPosition() + sf::Vector2f(-5, 0));
-        if (heldKeys.count(sf::Keyboard::Key::Right) > 0 && heldKeys[sf::Keyboard::Key::Right]) player.setPosition(player.getPosition() + sf::Vector2f(5, 0));
-
         // handle gravity
-        player_velocity += sf::Vector2f(0, 10. / 144);
+        player_velocity.y += 10. / 144;
         player.setPosition(player.getPosition() + player_velocity);
         if (player.getGlobalBounds().findIntersection(platform.getGlobalBounds()).has_value())
         {
@@ -48,8 +73,6 @@ int main()
             player_can_jump = true;
         }
         else { player_can_jump = false; }
-
-        if (player_can_jump && heldKeys.count(sf::Keyboard::Key::Space) > 0 && heldKeys[sf::Keyboard::Key::Space]) { player_velocity.y = -10; }
 
         window.clear();
         
