@@ -1,6 +1,5 @@
 #include "Player.hpp"
 #include "Platform.hpp"
-#include <SFML/Graphics.hpp>
 
 int main()
 {
@@ -8,11 +7,18 @@ int main()
     window.setFramerateLimit(144);
     window.setKeyRepeatEnabled(false);
 
+    std::vector<engine::IDrawable*> drawables = {};
+
     auto platform = engine::Platform({1500, 10}, {210, 1000});
+    drawables.push_back(&platform);
+
     auto player = engine::Player({935, 500});
+    drawables.push_back(&player);
+
     bool player_can_jump = false;
 
     std::unordered_map<sf::Keyboard::Key, bool> heldKeys = {};
+
 
     while (window.isOpen())
     {
@@ -70,10 +76,7 @@ int main()
         else { player_can_jump = false; }
 
         window.clear();
-        
-        window.draw(platform.boundingBox);
-        window.draw(player.boundingBox);
-        
+        for (auto drawable : drawables) { drawable->draw(window); }
         window.display();
     }
 }

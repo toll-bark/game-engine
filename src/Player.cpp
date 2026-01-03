@@ -12,3 +12,5 @@ void engine::Player::update()
     velocity.y += 10. / 144;
     boundingBox.setPosition(boundingBox.getPosition() + velocity);
 }
+
+void engine::Player::draw(sf::RenderTarget& target) { target.draw(boundingBox); }
