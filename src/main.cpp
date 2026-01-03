@@ -1,3 +1,4 @@
+#include "Player.hpp"
 #include <SFML/Graphics.hpp>
 
 int main()
@@ -6,12 +7,8 @@ int main()
     window.setFramerateLimit(144);
     window.setKeyRepeatEnabled(false);
 
-    auto player = sf::RectangleShape({50, 100});
-    player.setFillColor(sf::Color::Magenta);
-    player.setPosition({935, 500});
+    auto player = engine::Player({935, 500});
     bool player_can_jump = false;
-
-    sf::Vector2f player_velocity(0, 0);
 
     auto platform = sf::RectangleShape({1500, 10});
     platform.setPosition({210, 1000});
@@ -32,13 +29,13 @@ int main()
                 switch(event->getIf<sf::Event::KeyPressed>()->code)
                 {
                     case sf::Keyboard::Key::Left:
-                        player_velocity.x += -5;
+                        player.velocity.x += -5;
                         break;
                     case sf::Keyboard::Key::Right:
-                        player_velocity.x += 5;
+                        player.velocity.x += 5;
                         break;
                     case sf::Keyboard::Key::Space:
-                        if (player_can_jump) { player_velocity.y += -10; }
+                        if (player_can_jump) { player.velocity.y += -10; }
                         break;
                     default:
                         break;
@@ -48,10 +45,10 @@ int main()
                 switch(event->getIf<sf::Event::KeyReleased>()->code)
                 {
                     case sf::Keyboard::Key::Left:
-                        player_velocity.x -= -5;
+                        player.velocity.x -= -5;
                         break;
                     case sf::Keyboard::Key::Right:
-                        player_velocity.x -= 5;
+                        player.velocity.x -= 5;
                         break;
                     default:
                         break;
@@ -60,16 +57,15 @@ int main()
         }
 
         // handle gravity
-        player_velocity.y += 10. / 144;
-        player.setPosition(player.getPosition() + player_velocity);
-        if (player.getGlobalBounds().findIntersection(platform.getGlobalBounds()).has_value())
+        player.update();
+        if (player.boundingBox.getGlobalBounds().findIntersection(platform.getGlobalBounds()).has_value())
         {
-            player_velocity.y = 0;
+            player.velocity.y = 0;
 
             auto top_of_platform = platform.getPosition().y;
-            auto bottom_of_player = player.getPosition().y + player.getSize().y;
+            auto bottom_of_player = player.boundingBox.getPosition().y + player.boundingBox.getSize().y;
             auto diff = top_of_platform - bottom_of_player;
-            player.setPosition(player.getPosition() + sf::Vector2f(0, diff));
+            player.boundingBox.setPosition(player.boundingBox.getPosition() + sf::Vector2f(0, diff));
             player_can_jump = true;
         }
         else { player_can_jump = false; }
@@ -77,7 +73,7 @@ int main()
         window.clear();
         
         window.draw(platform);
-        window.draw(player);
+        window.draw(player.boundingBox);
         
         window.display();
     }
