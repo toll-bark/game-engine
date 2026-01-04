@@ -1,5 +1,9 @@
+# don't publish VS config files
+.vs/
+
 # don't publish build files
 build/
+out/
 
 ###
 # Below: C++ gitignore from https://www.github.com/github/gitignore/blob/main/C%2B%2B.gitignore
