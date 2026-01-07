@@ -2,7 +2,12 @@ cmake_minimum_required(VERSION 3.28)
 project(GameEngineDemo LANGUAGES CXX)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
-set(SRC_FILES "src/Player.cpp" "src/Platform.cpp" "src/DefaultGameObjectManager.cpp" "src/DefaultDrawableFactory.cpp" "src/DefaultUpdateableFactory.cpp")
+set(SRC_FILES 
+    "src/Player.cpp" "src/Platform.cpp" 
+    "src/DefaultGameObjectManager.cpp" 
+    "src/DefaultDrawableFactory.cpp" "src/DefaultUpdateableFactory.cpp"
+    "src/DefaultPlatformFactory.cpp"
+)
 
 include_directories(include)
 

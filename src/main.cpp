@@ -1,5 +1,7 @@
+#include "DefaultDrawableFactory.hpp"
+#include "DefaultGameObjectManager.hpp"
+#include "DefaultPlatformFactory.hpp"
 #include "Player.hpp"
-#include "Platform.hpp"
 
 engine::Player* player = nullptr;
 bool player_can_jump = false;
@@ -48,11 +50,15 @@ static void handleKeyRelease(const sf::Event::KeyReleased* event)
 
 int main()
 {
+    engine::AbstractGameObjectManager* gom = new engine::DefaultGameObjectManager();
+    engine::AbstractDrawableFactory* drawableFactory = new engine::DefaultDrawableFactory(*gom);
+    engine::AbstractPlatformFactory* platformFactory = new engine::DefaultPlatformFactory(*gom, *drawableFactory);
+
     auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "CMake SFML Project");
     window.setFramerateLimit(144);
     window.setKeyRepeatEnabled(false);
 
-    auto platform = engine::Platform(0, {1500, 10}, {210, 1000});
+    auto platform = platformFactory->create({1500, 10}, {210, 1000});
     drawables.push_back(&platform);
 
     auto playerEntity = engine::Player(1, {935, 500});
