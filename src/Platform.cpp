@@ -1,6 +1,7 @@
 #include "Platform.hpp"
 
-engine::Platform::Platform(sf::Vector2f size, sf::Vector2f position)
+engine::Platform::Platform(int id, sf::Vector2f size, sf::Vector2f position)
+    : engine::GameObject(id)
 {
     boundingBox = sf::RectangleShape(size);
     boundingBox.setPosition(position);

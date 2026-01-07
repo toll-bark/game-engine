@@ -51,10 +51,10 @@ int main()
     window.setFramerateLimit(144);
     window.setKeyRepeatEnabled(false);
 
-    auto platform = engine::Platform({1500, 10}, {210, 1000});
+    auto platform = engine::Platform(0, {1500, 10}, {210, 1000});
     drawables.push_back(&platform);
 
-    auto playerEntity = engine::Player({935, 500});
+    auto playerEntity = engine::Player(1, {935, 500});
     player = &playerEntity;
     drawables.push_back(&playerEntity);
 

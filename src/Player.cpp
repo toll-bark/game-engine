@@ -1,6 +1,7 @@
 #include "Player.hpp"
 
-engine::Player::Player(sf::Vector2f position)
+engine::Player::Player(int id, sf::Vector2f position) 
+    : engine::GameObject(id)
 {
     boundingBox = sf::RectangleShape({50, 100});
     boundingBox.setPosition(position);
