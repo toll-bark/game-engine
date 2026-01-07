@@ -6,7 +6,7 @@ set(SRC_FILES
     "src/Player.cpp" "src/Platform.cpp" 
     "src/DefaultGameObjectManager.cpp" 
     "src/DefaultDrawableFactory.cpp" "src/DefaultUpdateableFactory.cpp"
-    "src/DefaultPlatformFactory.cpp"
+    "src/DefaultPlatformFactory.cpp" "src/DefaultPlayerFactory.cpp"
 )
 
 include_directories(include)

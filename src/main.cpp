@@ -1,13 +1,12 @@
 #include "DefaultDrawableFactory.hpp"
 #include "DefaultGameObjectManager.hpp"
 #include "DefaultPlatformFactory.hpp"
+#include "DefaultPlayerFactory.hpp"
+#include "DefaultUpdateableFactory.hpp"
 #include "Player.hpp"
 
 engine::Player* player = nullptr;
 bool player_can_jump = false;
-
-std::vector<engine::IDrawable*> drawables = {};
-std::vector<engine::IUpdateable*> updateables = {};
 
 std::unordered_map<sf::Keyboard::Key, bool> heldKeys = {};
 
@@ -52,19 +51,16 @@ int main()
 {
     engine::AbstractGameObjectManager* gom = new engine::DefaultGameObjectManager();
     engine::AbstractDrawableFactory* drawableFactory = new engine::DefaultDrawableFactory(*gom);
+    engine::AbstractUpdateableFactory* updateableFactory = new engine::DefaultUpdateableFactory(*gom);
     engine::AbstractPlatformFactory* platformFactory = new engine::DefaultPlatformFactory(*gom, *drawableFactory);
+    engine::AbstractPlayerFactory* playerFactory = new engine::DefaultPlayerFactory(*gom, *drawableFactory, *updateableFactory);
 
     auto window = sf::RenderWindow(sf::VideoMode({1920u, 1080u}), "CMake SFML Project");
     window.setFramerateLimit(144);
     window.setKeyRepeatEnabled(false);
 
     auto platform = platformFactory->create({1500, 10}, {210, 1000});
-    drawables.push_back(&platform);
-
-    auto playerEntity = engine::Player(1, {935, 500});
-    player = &playerEntity;
-    drawables.push_back(&playerEntity);
-    updateables.push_back(&playerEntity);
+    player = &playerFactory->create({935, 500});
 
     while (window.isOpen())
     {
@@ -76,22 +72,22 @@ int main()
             if (event->is<sf::Event::KeyReleased>()) { handleKeyRelease(event->getIf<sf::Event::KeyReleased>()); }
         }
 
-        for (auto updateable : updateables) { updateable->update(); }
+        for (auto updateable : updateableFactory->getAll()) { updateable->update(); }
 
-        if (playerEntity.boundingBox.getGlobalBounds().findIntersection(platform.boundingBox.getGlobalBounds()).has_value())
+        if (player->boundingBox.getGlobalBounds().findIntersection(platform.boundingBox.getGlobalBounds()).has_value())
         {
-            playerEntity.velocity.y = 0;
+            player->velocity.y = 0;
 
             auto top_of_platform = platform.boundingBox.getPosition().y;
-            auto bottom_of_player = playerEntity.boundingBox.getPosition().y + playerEntity.boundingBox.getSize().y;
+            auto bottom_of_player = player->boundingBox.getPosition().y + player->boundingBox.getSize().y;
             auto diff = top_of_platform - bottom_of_player;
-            playerEntity.boundingBox.setPosition(playerEntity.boundingBox.getPosition() + sf::Vector2f(0, diff));
+            player->boundingBox.setPosition(player->boundingBox.getPosition() + sf::Vector2f(0, diff));
             player_can_jump = true;
         }
         else { player_can_jump = false; }
 
         window.clear();
-        for (auto drawable : drawables) { drawable->draw(window); }
+        for (auto drawable : drawableFactory->getAll()) { drawable->draw(window); }
         window.display();
     }
 }
