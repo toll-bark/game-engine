@@ -6,4 +6,4 @@ std::vector<engine::IDrawable*> engine::DefaultDrawableFactory::getAll(void) {
 	return res;
 }
 
-void engine::DefaultDrawableFactory::onNext(int id) { objects.erase(id); }
+void engine::DefaultDrawableFactory::onNext(int id) { if (objects.count(id) > 0) objects.erase(id); }

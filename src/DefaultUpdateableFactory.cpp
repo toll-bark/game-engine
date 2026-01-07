@@ -7,4 +7,4 @@ std::vector<engine::IUpdateable*> engine::DefaultUpdateableFactory::getAll(void)
 	return res;
 }
 
-void engine::DefaultUpdateableFactory::onNext(int id) { objects.erase(id); }
+void engine::DefaultUpdateableFactory::onNext(int id) { if (objects.count(id) > 0) objects.erase(id); }
