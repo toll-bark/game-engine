@@ -1,6 +1,8 @@
 #ifndef engine_DefaultGameObjectManager
 #define engine_DefaultGameObjectManager
 
+#include <vector>
+
 #include "AbstractGameObjectManager.hpp"
 
 namespace engine
