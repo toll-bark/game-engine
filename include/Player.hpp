@@ -3,10 +3,11 @@
 
 #include "GameObject.hpp"
 #include "IDrawable.hpp"
+#include "IUpdateable.hpp"
 
 namespace engine
 {
-    class Player : public IDrawable, public GameObject
+    class Player : public IDrawable, public IUpdateable, public GameObject
     {
     public:
         sf::RectangleShape boundingBox;
@@ -14,7 +15,7 @@ namespace engine
 
         Player(int, sf::Vector2f position);
         virtual void draw(sf::RenderTarget& target) override;
-        void update();
+        virtual void update(void) override;
     };
 }
 

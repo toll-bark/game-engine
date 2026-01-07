@@ -5,6 +5,7 @@ engine::Player* player = nullptr;
 bool player_can_jump = false;
 
 std::vector<engine::IDrawable*> drawables = {};
+std::vector<engine::IUpdateable*> updateables = {};
 
 std::unordered_map<sf::Keyboard::Key, bool> heldKeys = {};
 
@@ -57,6 +58,7 @@ int main()
     auto playerEntity = engine::Player(1, {935, 500});
     player = &playerEntity;
     drawables.push_back(&playerEntity);
+    updateables.push_back(&playerEntity);
 
     while (window.isOpen())
     {
@@ -68,8 +70,8 @@ int main()
             if (event->is<sf::Event::KeyReleased>()) { handleKeyRelease(event->getIf<sf::Event::KeyReleased>()); }
         }
 
-        // handle gravity
-        playerEntity.update();
+        for (auto updateable : updateables) { updateable->update(); }
+
         if (playerEntity.boundingBox.getGlobalBounds().findIntersection(platform.boundingBox.getGlobalBounds()).has_value())
         {
             playerEntity.velocity.y = 0;
