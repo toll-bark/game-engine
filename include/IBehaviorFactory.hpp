@@ -9,7 +9,7 @@ namespace engine
 	class IBehaviorFactory
 	{
 	public:
-		virtual void insert(int, T) = 0;
+		virtual void insert(int, T&) = 0;
 	};
 }
 

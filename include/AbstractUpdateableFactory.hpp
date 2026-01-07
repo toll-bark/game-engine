@@ -11,13 +11,13 @@
 
 namespace engine
 {
-	class AbstractUpdateableFactory : public IGameObjectFactory<IUpdateable*>, public IBehaviorFactory<IUpdateable*>, public IGameObjectDeleteObserver
+	class AbstractUpdateableFactory : public IGameObjectFactory<IUpdateable>, public IBehaviorFactory<IUpdateable>, public IGameObjectDeleteObserver
 	{
 	protected:
 		std::unordered_map<int, IUpdateable*> objects = {};
 	public:
 		AbstractUpdateableFactory(AbstractGameObjectManager& objectManager) { objectManager.enroll(*this); }
-		virtual void insert(int id, IUpdateable* object) override { objects[id] = object; }
+		virtual void insert(int id, IUpdateable& object) override { objects[id] = &object; }
 	};
 }
 

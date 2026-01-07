@@ -9,7 +9,7 @@ namespace engine
 	class IGameObjectFactory
 	{
 	public:
-		virtual std::vector<T> getAll(void) = 0;
+		virtual std::vector<T*> getAll(void) = 0;
 	};
 }
 
