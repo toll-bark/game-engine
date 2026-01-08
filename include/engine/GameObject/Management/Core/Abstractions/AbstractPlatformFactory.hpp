@@ -14,6 +14,7 @@ namespace engine
     public:
         AbstractPlatformFactory(AbstractGameObjectManager& objectManager) : GameObjectFactoryTemplate(objectManager) {}
         virtual Platform& create(sf::Vector2f size, sf::Vector2f position) = 0;
+        virtual ~AbstractPlatformFactory() = default;
     };
 }
 

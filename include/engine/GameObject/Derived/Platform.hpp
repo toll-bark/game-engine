@@ -6,7 +6,7 @@
 
 namespace engine
 {
-    class Platform : public IDrawable, public GameObject
+    class Platform final : public IDrawable, public GameObject
     {
     public:
         sf::RectangleShape boundingBox;

@@ -9,10 +9,10 @@ file(GLOB TEST_FILES "test/*.cpp")
 
 if (MSVC)
     # warning level 4
-    add_compile_options(-O)
+    add_compile_options(/W4)
 else()
     # additional warnings
-    add_compile_options(-Wall -g)
+    add_compile_options(-Wall)
 endif()
 
 include(FetchContent)

@@ -6,7 +6,7 @@
 
 namespace engine
 {
-	class DefaultDrawableFactory : public BehaviorFactoryTemplate<IDrawable>
+	class DefaultDrawableFactory final : public BehaviorFactoryTemplate<IDrawable>
 	{
 	public:
 		DefaultDrawableFactory(AbstractGameObjectManager& manager) : BehaviorFactoryTemplate<IDrawable>(manager) {}

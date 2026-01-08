@@ -6,7 +6,7 @@
 
 namespace engine
 {
-    class DefaultPlatformFactory : public AbstractPlatformFactory
+    class DefaultPlatformFactory final : public AbstractPlatformFactory
     {
     private:
         AbstractGameObjectManager& gom;

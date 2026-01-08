@@ -5,7 +5,7 @@
 
 namespace engine
 {
-	class DefaultUpdateableFactory : public BehaviorFactoryTemplate<IUpdateable>
+	class DefaultUpdateableFactory final : public BehaviorFactoryTemplate<IUpdateable>
 	{
 	public:
 		DefaultUpdateableFactory(AbstractGameObjectManager& manager) : BehaviorFactoryTemplate<IUpdateable>(manager) {}

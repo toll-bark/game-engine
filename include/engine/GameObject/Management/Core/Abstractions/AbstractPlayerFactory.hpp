@@ -14,6 +14,7 @@ namespace engine
     public:
         AbstractPlayerFactory(AbstractGameObjectManager& gom) : GameObjectFactoryTemplate(gom) {}
         virtual Player& create(sf::Vector2f position) = 0;
+        virtual ~AbstractPlayerFactory() = default;
     };
 }
 

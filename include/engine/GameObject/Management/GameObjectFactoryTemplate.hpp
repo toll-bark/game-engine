@@ -22,6 +22,7 @@ namespace engine
 			for (std::pair<int, T*> kvp : objects) { res.push_back(kvp.second); }
 			return res;
 		}
+		~GameObjectFactoryTemplate<T>() = default;
 	};
 }
 

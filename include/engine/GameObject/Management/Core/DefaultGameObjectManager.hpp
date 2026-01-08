@@ -8,7 +8,7 @@
 
 namespace engine
 {
-	class DefaultGameObjectManager : public AbstractGameObjectManager
+	class DefaultGameObjectManager final : public AbstractGameObjectManager
 	{
 		int highestId = -1;
 		std::unordered_set<int> trackedObjects = {};

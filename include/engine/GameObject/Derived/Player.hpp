@@ -7,7 +7,7 @@
 
 namespace engine
 {
-    class Player : public IDrawable, public IUpdateable, public GameObject
+    class Player final : public IDrawable, public IUpdateable, public GameObject
     {
     public:
         sf::RectangleShape boundingBox;

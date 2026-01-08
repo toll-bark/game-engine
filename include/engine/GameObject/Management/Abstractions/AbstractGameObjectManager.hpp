@@ -12,6 +12,7 @@ namespace engine
 		virtual void enroll(IGameObjectDeleteObserver&) = 0;
 		virtual void insert(int) = 0;
 		virtual int nextId(void) = 0;
+		virtual ~AbstractGameObjectManager() = default;
 	};
 }
 
