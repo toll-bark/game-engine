@@ -1,13 +1,13 @@
 #ifndef engine_AbstractUpdateableFactory
 #define engine_AbstractUpdateableFactory
 
-#include "AbstractGameObjectManager.hpp"
-#include "IBehaviorFactory.hpp"
-#include "IGameObjectDeleteObserver.hpp"
-#include "IGameObjectFactory.hpp"
-#include "IUpdateable.hpp"
-
 #include <unordered_map>
+
+#include <engine/AbstractGameObjectManager.hpp>
+#include <engine/IBehaviorFactory.hpp>
+#include <engine/IGameObjectDeleteObserver.hpp>
+#include <engine/IGameObjectFactory.hpp>
+#include <engine/IUpdateable.hpp>
 
 namespace engine
 {

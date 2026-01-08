@@ -1,9 +1,9 @@
-#include "DefaultDrawableFactory.hpp"
-#include "DefaultGameObjectManager.hpp"
-#include "DefaultPlatformFactory.hpp"
-#include "DefaultPlayerFactory.hpp"
-#include "DefaultUpdateableFactory.hpp"
-#include "Player.hpp"
+#include <engine/DefaultDrawableFactory.hpp>
+#include <engine/DefaultGameObjectManager.hpp>
+#include <engine/DefaultPlatformFactory.hpp>
+#include <engine/DefaultPlayerFactory.hpp>
+#include <engine/DefaultUpdateableFactory.hpp>
+#include <engine/Player.hpp>
 
 engine::Player* player = nullptr;
 bool player_can_jump = false;

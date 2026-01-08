@@ -1,10 +1,10 @@
 #ifndef engine_DefaultPlayerFactory
 #define engine_DefaultPlayerFactory
 
-#include "AbstractDrawableFactory.hpp"
-#include "AbstractGameObjectManager.hpp"
-#include "AbstractPlayerFactory.hpp"
-#include "AbstractUpdateableFactory.hpp"
+#include <engine/AbstractDrawableFactory.hpp>
+#include <engine/AbstractGameObjectManager.hpp>
+#include <engine/AbstractPlayerFactory.hpp>
+#include <engine/AbstractUpdateableFactory.hpp>
 
 namespace engine
 {

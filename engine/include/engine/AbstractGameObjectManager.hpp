@@ -1,7 +1,7 @@
 #ifndef engine_AbstractGameObjectManager
 #define engine_AbstractGameObjectManager
 
-#include "IGameObjectDeleteObserver.hpp"
+#include <engine/IGameObjectDeleteObserver.hpp>
 
 namespace engine
 {

@@ -1,9 +1,9 @@
 #ifndef engine_Player
 #define engine_Player
 
-#include "GameObject.hpp"
-#include "IDrawable.hpp"
-#include "IUpdateable.hpp"
+#include <engine/GameObject.hpp>
+#include <engine/IDrawable.hpp>
+#include <engine/IUpdateable.hpp>
 
 namespace engine
 {

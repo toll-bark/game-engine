@@ -1,7 +1,7 @@
-#include "DefaultGameObjectManager.hpp"
-
 #include <stdexcept>
 #include <sstream>
+
+#include <engine/DefaultGameObjectManager.hpp>
 
 void engine::DefaultGameObjectManager::deleteGameObject(int id)
 {

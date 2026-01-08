@@ -1,11 +1,11 @@
 #ifndef engine_AbstractDrawableFactory
 #define engine_AbstractDrawableFactory
 
-#include "AbstractGameObjectManager.hpp"
-#include "IBehaviorFactory.hpp"
-#include "IDrawable.hpp"
-#include "IGameObjectFactory.hpp"
-#include "IGameObjectDeleteObserver.hpp"
+#include <engine/AbstractGameObjectManager.hpp>
+#include <engine/IBehaviorFactory.hpp>
+#include <engine/IDrawable.hpp>
+#include <engine/IGameObjectFactory.hpp>
+#include <engine/IGameObjectDeleteObserver.hpp>
 
 namespace engine
 {

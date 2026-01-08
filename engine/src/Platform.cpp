@@ -1,4 +1,4 @@
-#include "Platform.hpp"
+#include <engine/Platform.hpp>
 
 engine::Platform::Platform(int id, sf::Vector2f size, sf::Vector2f position)
     : engine::GameObject(id)

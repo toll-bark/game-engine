@@ -1,7 +1,7 @@
 #ifndef engine_DefaultDrawableFactory
 #define engine_DefaultDrawableFactory
 
-#include "AbstractDrawableFactory.hpp"
+#include <engine/AbstractDrawableFactory.hpp>
 
 namespace engine
 {

@@ -1,7 +1,7 @@
 #ifndef engine_DefaultUpdateableFactory
 #define engine_DefaultUpdateableFactory
 
-#include "AbstractUpdateableFactory.hpp"
+#include <engine/AbstractUpdateableFactory.hpp>
 
 namespace engine
 {

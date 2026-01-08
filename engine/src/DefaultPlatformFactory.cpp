@@ -1,4 +1,4 @@
-#include "DefaultPlatformFactory.hpp"
+#include <engine/DefaultPlatformFactory.hpp>
 
 engine::Platform& engine::DefaultPlatformFactory::create(sf::Vector2f size, sf::Vector2f position)
 {

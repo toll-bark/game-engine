@@ -1,4 +1,4 @@
-#include "Player.hpp"
+#include <engine/Player.hpp>
 
 engine::Player::Player(int id, sf::Vector2f position) 
     : engine::GameObject(id)

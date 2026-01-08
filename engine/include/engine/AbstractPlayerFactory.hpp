@@ -3,10 +3,10 @@
 
 #include <unordered_map>
 
-#include "AbstractGameObjectManager.hpp"
-#include "IGameObjectFactory.hpp"
-#include "IGameObjectDeleteObserver.hpp"
-#include "Player.hpp"
+#include <engine/AbstractGameObjectManager.hpp>
+#include <engine/IGameObjectFactory.hpp>
+#include <engine/IGameObjectDeleteObserver.hpp>
+#include <engine/Player.hpp>
 
 namespace engine 
 {
