@@ -9,8 +9,6 @@ namespace engine
 	{
 	public:
 		DefaultUpdateableFactory(AbstractGameObjectManager& manager) : AbstractUpdateableFactory(manager) {}
-		virtual std::vector<IUpdateable*> getAll(void) override;
-		virtual void onNext(int) override;
 	};
 }
 

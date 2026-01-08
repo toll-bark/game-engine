@@ -3,18 +3,14 @@
 
 #include <engine/GameObject/Behavior/IDrawable.hpp>
 #include <engine/GameObject/Management/Abstractions/AbstractGameObjectManager.hpp>
-#include <engine/GameObject/Management/Abstractions/IBehaviorFactory.hpp>
-#include <engine/GameObject/Management/Abstractions/AbstractGameObjectFactory.hpp>
+#include <engine/GameObject/Management/BehaviorFactoryTemplate.hpp>
 
 namespace engine
 {
-	class AbstractDrawableFactory : public AbstractGameObjectFactory<IDrawable>, public IBehaviorFactory<IDrawable>
+	class AbstractDrawableFactory : public BehaviorFactoryTemplate<IDrawable>
 	{
-	protected:
-		std::unordered_map<int, IDrawable*> objects = {};
 	public:
-		AbstractDrawableFactory(AbstractGameObjectManager& objectManager) : AbstractGameObjectFactory<IDrawable>(objectManager) {}
-		virtual void insert(int id, IDrawable& object) override { objects[id] = &object; }
+		AbstractDrawableFactory(AbstractGameObjectManager& objectManager) : BehaviorFactoryTemplate<IDrawable>(objectManager) {}
 	};
 }
 

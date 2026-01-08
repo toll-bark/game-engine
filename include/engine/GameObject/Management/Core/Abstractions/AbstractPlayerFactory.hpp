@@ -5,19 +5,15 @@
 
 #include <engine/GameObject/Derived/Player.hpp>
 #include <engine/GameObject/Management/Abstractions/AbstractGameObjectManager.hpp>
-#include <engine/GameObject/Management/Abstractions/AbstractGameObjectFactory.hpp>
+#include <engine/GameObject/Management/GameObjectFactoryTemplate.hpp>
 
 namespace engine 
 {
-    class AbstractPlayerFactory
-        : public AbstractGameObjectFactory<Player>
+    class AbstractPlayerFactory : public GameObjectFactoryTemplate<Player>
     {
-    protected:
-        std::unordered_map<int, Player*> trackedObjects = {};
     public:
-        AbstractPlayerFactory(AbstractGameObjectManager& gom) : AbstractGameObjectFactory(gom) {}
+        AbstractPlayerFactory(AbstractGameObjectManager& gom) : GameObjectFactoryTemplate(gom) {}
         virtual Player& create(sf::Vector2f position) = 0;
-        virtual void onNext(int id) override { if (trackedObjects.count(id) > 0) delete trackedObjects[id]; }
     };
 }
 

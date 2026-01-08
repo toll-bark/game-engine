@@ -9,8 +9,6 @@ namespace engine
 	{
 	public:
 		DefaultDrawableFactory(AbstractGameObjectManager& manager) : AbstractDrawableFactory(manager) {}
-		virtual std::vector<IDrawable*> getAll(void) override;
-		virtual void onNext(int) override;
 	};
 }
 

@@ -18,7 +18,6 @@ namespace engine
         DefaultPlayerFactory(AbstractGameObjectManager& gom, AbstractDrawableFactory& drawableFactory, AbstractUpdateableFactory& updateableFactory)
             : AbstractPlayerFactory(gom), gom(gom), updateableFactory(updateableFactory), drawableFactory(drawableFactory) {}
         virtual Player& create(sf::Vector2f position) override;
-        virtual std::vector<Player*> getAll(void) override;
         ~DefaultPlayerFactory();
     };
 }
