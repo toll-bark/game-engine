@@ -2,6 +2,7 @@
 #define engine_IGameObjectFactory
 
 #include <vector>
+#include <unordered_map>
 
 #include <engine/GameObject/Management/Abstractions/AbstractGameObjectManager.hpp>
 #include <engine/GameObject/Management/Abstractions/IGameObjectDeleteObserver.hpp>

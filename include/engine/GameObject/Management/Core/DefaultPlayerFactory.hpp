@@ -2,9 +2,8 @@
 #define engine_DefaultPlayerFactory
 
 #include <engine/GameObject/Management/Abstractions/AbstractGameObjectManager.hpp>
-#include <engine/GameObject/Management/Core/Abstractions/AbstractDrawableFactory.hpp>
+#include <engine/GameObject/Management/BehaviorFactoryTemplate.hpp>
 #include <engine/GameObject/Management/Core/Abstractions/AbstractPlayerFactory.hpp>
-#include <engine/GameObject/Management/Core/Abstractions/AbstractUpdateableFactory.hpp>
 
 namespace engine
 {
@@ -12,10 +11,12 @@ namespace engine
         : public AbstractPlayerFactory
     {
         AbstractGameObjectManager& gom;
-        AbstractDrawableFactory& drawableFactory;
-        AbstractUpdateableFactory& updateableFactory;
+        BehaviorFactoryTemplate<engine::IDrawable>& drawableFactory;
+        BehaviorFactoryTemplate<engine::IUpdateable>& updateableFactory;
     public:
-        DefaultPlayerFactory(AbstractGameObjectManager& gom, AbstractDrawableFactory& drawableFactory, AbstractUpdateableFactory& updateableFactory)
+        DefaultPlayerFactory(AbstractGameObjectManager& gom, 
+            BehaviorFactoryTemplate<engine::IDrawable>& drawableFactory, 
+            BehaviorFactoryTemplate<engine::IUpdateable>& updateableFactory)
             : AbstractPlayerFactory(gom), gom(gom), updateableFactory(updateableFactory), drawableFactory(drawableFactory) {}
         virtual Player& create(sf::Vector2f position) override;
         ~DefaultPlayerFactory();

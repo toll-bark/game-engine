@@ -1,14 +1,14 @@
 #ifndef engine_DefaultUpdateableFactory
 #define engine_DefaultUpdateableFactory
 
-#include <engine/GameObject/Management/Core/Abstractions/AbstractUpdateableFactory.hpp>
+#include <engine/GameObject/Management/BehaviorFactoryTemplate.hpp>
 
 namespace engine
 {
-	class DefaultUpdateableFactory : public AbstractUpdateableFactory
+	class DefaultUpdateableFactory : public BehaviorFactoryTemplate<IUpdateable>
 	{
 	public:
-		DefaultUpdateableFactory(AbstractGameObjectManager& manager) : AbstractUpdateableFactory(manager) {}
+		DefaultUpdateableFactory(AbstractGameObjectManager& manager) : BehaviorFactoryTemplate<IUpdateable>(manager) {}
 	};
 }
 

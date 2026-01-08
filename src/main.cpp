@@ -50,8 +50,8 @@ static void handleKeyRelease(const sf::Event::KeyReleased* event)
 int main()
 {
     engine::AbstractGameObjectManager* gom = new engine::DefaultGameObjectManager();
-    engine::AbstractDrawableFactory* drawableFactory = new engine::DefaultDrawableFactory(*gom);
-    engine::AbstractUpdateableFactory* updateableFactory = new engine::DefaultUpdateableFactory(*gom);
+    engine::BehaviorFactoryTemplate<engine::IDrawable>* drawableFactory = new engine::DefaultDrawableFactory(*gom);
+    engine::BehaviorFactoryTemplate<engine::IUpdateable>* updateableFactory = new engine::DefaultUpdateableFactory(*gom);
     engine::AbstractPlatformFactory* platformFactory = new engine::DefaultPlatformFactory(*gom, *drawableFactory);
     engine::AbstractPlayerFactory* playerFactory = new engine::DefaultPlayerFactory(*gom, *drawableFactory, *updateableFactory);
 
