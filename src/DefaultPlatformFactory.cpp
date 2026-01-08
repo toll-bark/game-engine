@@ -5,8 +5,8 @@ engine::Platform& engine::DefaultPlatformFactory::create(sf::Vector2f size, sf::
     Platform* res = new Platform(gom.nextId(), size, position);
     gom.insert(res->id);
     drawableFactory.insert(res->id, *res);
-    trackedObjects[res->id] = res;
+    objects[res->id] = res;
     return *res;
 }
 
-engine::DefaultPlatformFactory::~DefaultPlatformFactory() { for (std::pair<int, engine::Platform*> kvp : trackedObjects) { delete kvp.second; } }
+engine::DefaultPlatformFactory::~DefaultPlatformFactory() { for (std::pair<int, engine::Platform*> kvp : objects) { delete kvp.second; } }

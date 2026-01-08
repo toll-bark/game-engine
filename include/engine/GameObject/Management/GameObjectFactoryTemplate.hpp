@@ -16,7 +16,6 @@ namespace engine
 		std::unordered_map<int, T*> objects = {};
 	public:
 		GameObjectFactoryTemplate(AbstractGameObjectManager& gom) { gom.enroll(*this); }
-		virtual void onNext(int id) override { if (objects.count(id) > 0) objects.erase(id); }
 		std::vector<T*> getAll(void)
 		{
 			std::vector<T*> res = {};

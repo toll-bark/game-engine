@@ -19,6 +19,14 @@ namespace engine
             BehaviorFactoryTemplate<engine::IUpdateable>& updateableFactory)
             : AbstractPlayerFactory(gom), gom(gom), updateableFactory(updateableFactory), drawableFactory(drawableFactory) {}
         virtual Player& create(sf::Vector2f position) override;
+        virtual void onNext(int id) override  
+        {  
+            if (objects.count(id) > 0) 
+            { 
+                delete objects[id]; 
+                objects.erase(id);
+            }
+        }
         ~DefaultPlayerFactory();
     };
 }

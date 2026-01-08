@@ -12,6 +12,7 @@ namespace engine
 	{
 	public:
 		BehaviorFactoryTemplate<T>(AbstractGameObjectManager& gom) : GameObjectFactoryTemplate<T>(gom) {}
+		virtual void onNext(int id) override  { if (this->objects.count(id) > 0) this->objects.erase(id); }
 		void insert(int id, T& object) { this->objects[id] = &object; }
 	};
 }
