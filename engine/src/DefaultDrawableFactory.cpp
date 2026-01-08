@@ -1,4 +1,4 @@
-#include <engine/DefaultDrawableFactory.hpp>
+#include <engine/GameObject/Management/Core/DefaultDrawableFactory.hpp>
 
 std::vector<engine::IDrawable*> engine::DefaultDrawableFactory::getAll(void) {
 	std::vector<engine::IDrawable*> res = {};

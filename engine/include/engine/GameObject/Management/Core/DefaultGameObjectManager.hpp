@@ -4,7 +4,7 @@
 #include <vector>
 #include <unordered_set>
 
-#include <engine/AbstractGameObjectManager.hpp>
+#include <engine/GameObject/Management/Abstractions/AbstractGameObjectManager.hpp>
 
 namespace engine
 {

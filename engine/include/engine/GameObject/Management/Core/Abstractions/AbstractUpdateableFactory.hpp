@@ -3,11 +3,11 @@
 
 #include <unordered_map>
 
-#include <engine/AbstractGameObjectManager.hpp>
-#include <engine/IBehaviorFactory.hpp>
-#include <engine/IGameObjectDeleteObserver.hpp>
-#include <engine/IGameObjectFactory.hpp>
-#include <engine/IUpdateable.hpp>
+#include <engine/GameObject/Behavior/IUpdateable.hpp>
+#include <engine/GameObject/Management/Abstractions/AbstractGameObjectManager.hpp>
+#include <engine/GameObject/Management/Abstractions/IBehaviorFactory.hpp>
+#include <engine/GameObject/Management/Abstractions/IGameObjectFactory.hpp>
+#include <engine/GameObject/Management/Core/Abstractions/IGameObjectDeleteObserver.hpp>
 
 namespace engine
 {

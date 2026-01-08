@@ -1,11 +1,11 @@
 #ifndef engine_AbstractDrawableFactory
 #define engine_AbstractDrawableFactory
 
-#include <engine/AbstractGameObjectManager.hpp>
-#include <engine/IBehaviorFactory.hpp>
-#include <engine/IDrawable.hpp>
-#include <engine/IGameObjectFactory.hpp>
-#include <engine/IGameObjectDeleteObserver.hpp>
+#include <engine/GameObject/Behavior/IDrawable.hpp>
+#include <engine/GameObject/Management/Abstractions/AbstractGameObjectManager.hpp>
+#include <engine/GameObject/Management/Abstractions/IBehaviorFactory.hpp>
+#include <engine/GameObject/Management/Abstractions/IGameObjectFactory.hpp>
+#include <engine/GameObject/Management/Core/Abstractions/IGameObjectDeleteObserver.hpp>
 
 namespace engine
 {

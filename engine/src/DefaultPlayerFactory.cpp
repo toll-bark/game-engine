@@ -1,4 +1,4 @@
-#include <engine/DefaultPlayerFactory.hpp>
+#include <engine/GameObject/Management/Core/DefaultPlayerFactory.hpp>
 
 engine::Player& engine::DefaultPlayerFactory::create(sf::Vector2f position)
 {

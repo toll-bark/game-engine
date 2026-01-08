@@ -1,8 +1,8 @@
 #ifndef engine_Platform
 #define engine_Platform
 
-#include <engine/GameObject.hpp>
-#include <engine/IDrawable.hpp>
+#include <engine/GameObject/Behavior/IDrawable.hpp>
+#include <engine/GameObject/GameObject.hpp>
 
 namespace engine
 {

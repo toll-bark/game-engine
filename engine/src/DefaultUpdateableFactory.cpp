@@ -1,4 +1,4 @@
-#include <engine/DefaultUpdateableFactory.hpp>
+#include <engine/GameObject/Management/Core/DefaultUpdateableFactory.hpp>
 
 std::vector<engine::IUpdateable*> engine::DefaultUpdateableFactory::getAll(void) 
 {

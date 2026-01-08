@@ -1,8 +1,8 @@
 #ifndef engine_DefaultPlatformFactory
 #define engine_DefualtPlatformFactory
 
-#include <engine/AbstractDrawableFactory.hpp>
-#include <engine/AbstractPlatformFactory.hpp>
+#include <engine/GameObject/Management/Core/Abstractions/AbstractDrawableFactory.hpp>
+#include <engine/GameObject/Management/Core/Abstractions/AbstractPlatformFactory.hpp>
 
 namespace engine
 {

@@ -1,7 +1,7 @@
 #ifndef engine_DefaultUpdateableFactory
 #define engine_DefaultUpdateableFactory
 
-#include <engine/AbstractUpdateableFactory.hpp>
+#include <engine/GameObject/Management/Core/Abstractions/AbstractUpdateableFactory.hpp>
 
 namespace engine
 {

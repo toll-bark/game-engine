@@ -1,7 +1,7 @@
 #ifndef engine_DefaultDrawableFactory
 #define engine_DefaultDrawableFactory
 
-#include <engine/AbstractDrawableFactory.hpp>
+#include <engine/GameObject/Management/Core/Abstractions/AbstractDrawableFactory.hpp>
 
 namespace engine
 {
