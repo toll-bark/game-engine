@@ -9,4 +9,6 @@ engine::Platform& engine::DefaultPlatformFactory::create(sf::Vector2f size, sf::
     return *res;
 }
 
-engine::DefaultPlatformFactory::~DefaultPlatformFactory() { for (std::pair<int, engine::Platform*> kvp : objects) { delete kvp.second; } }
+void engine::DefaultPlatformFactory::remove(int id) { delete objects[id]; }
+
+engine::DefaultPlatformFactory::~DefaultPlatformFactory() { for (std::pair<int, engine::Platform*> kvp : objects) { remove(kvp.first); } }

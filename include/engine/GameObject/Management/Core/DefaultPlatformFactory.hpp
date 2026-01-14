@@ -8,21 +8,11 @@ namespace engine
 {
     class DefaultPlatformFactory final : public AbstractPlatformFactory
     {
-    private:
-        AbstractGameObjectManager& gom;
-        BehaviorFactoryTemplate<IDrawable>& drawableFactory;
     public:
         DefaultPlatformFactory(AbstractGameObjectManager& gom, BehaviorFactoryTemplate<IDrawable>&  drawableFactory)
-            : AbstractPlatformFactory(gom), gom(gom), drawableFactory(drawableFactory) {}
+            : AbstractPlatformFactory(gom, drawableFactory) {}
         virtual Platform& create(sf::Vector2f size, sf::Vector2f position) override;
-        virtual void onNext(int id) override  
-        { 
-            if (objects.count(id) > 0) 
-            { 
-                delete objects[id]; 
-                objects.erase(id);
-            }
-        }
+        virtual void remove(int id) override;
         ~DefaultPlatformFactory();
     };
 }

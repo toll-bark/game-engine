@@ -10,4 +10,6 @@ engine::Player& engine::DefaultPlayerFactory::create(sf::Vector2f position)
     return *res;
 }
 
-engine::DefaultPlayerFactory::~DefaultPlayerFactory() { for (std::pair<int, engine::Player*> kvp : objects) { delete kvp.second; } }
+void engine::DefaultPlayerFactory::remove(int id) { delete objects[id]; }
+
+engine::DefaultPlayerFactory::~DefaultPlayerFactory() { for (std::pair<int, engine::Player*> kvp : objects) { remove(kvp.first); } }

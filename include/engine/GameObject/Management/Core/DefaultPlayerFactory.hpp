@@ -9,23 +9,12 @@ namespace engine
 {
     class DefaultPlayerFactory final : public AbstractPlayerFactory
     {
-        AbstractGameObjectManager& gom;
-        BehaviorFactoryTemplate<engine::IDrawable>& drawableFactory;
-        BehaviorFactoryTemplate<engine::IUpdateable>& updateableFactory;
     public:
-        DefaultPlayerFactory(AbstractGameObjectManager& gom, 
-            BehaviorFactoryTemplate<engine::IDrawable>& drawableFactory, 
+        DefaultPlayerFactory(AbstractGameObjectManager& gom, BehaviorFactoryTemplate<engine::IDrawable>& drawableFactory, 
             BehaviorFactoryTemplate<engine::IUpdateable>& updateableFactory)
-            : AbstractPlayerFactory(gom), gom(gom), drawableFactory(drawableFactory), updateableFactory(updateableFactory) {}
+            : AbstractPlayerFactory(gom, drawableFactory, updateableFactory) {}
         virtual Player& create(sf::Vector2f position) override;
-        virtual void onNext(int id) override  
-        {  
-            if (objects.count(id) > 0) 
-            { 
-                delete objects[id]; 
-                objects.erase(id);
-            }
-        }
+        virtual void remove(int id) override;
         ~DefaultPlayerFactory();
     };
 }
